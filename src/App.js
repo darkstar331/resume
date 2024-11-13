@@ -492,7 +492,7 @@ export default function App() {
                 className="grid grid-cols-3 md:grid-cols-5 gap-6 max-w-6xl mx-auto"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: false, amount: 0.8 }} 
                 variants={{
                   visible: {
                     transition: {
@@ -535,7 +535,7 @@ export default function App() {
                 className="grid md:grid-cols-2 gap-8"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: false, amount: 0.8 }} 
                 variants={{
                   visible: {
                     transition: {
@@ -656,7 +656,7 @@ export default function App() {
           </section>
 
           {/* Footer */}
-          <footer className="w-full mt-16  bg-gray-900 text-center text-gray-400">
+          <footer className="w-full mt-16 bg-gray-900 text-center text-gray-400">
             <p>Created by Harman</p>
           </footer>
         </main>
