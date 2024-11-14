@@ -1,3 +1,5 @@
+// src/App.js
+
 import { useState, useRef, useCallback, useEffect } from 'react';
 import {
   motion,
@@ -31,9 +33,12 @@ import {
 } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial } from '@react-three/drei';
+import useIsMobile from './hooks/useIsMobile'; // Ensure this path is correct
 
+// AnimatedSphere Component
 const AnimatedSphere = () => {
   const meshRef = useRef();
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
@@ -54,6 +59,7 @@ const AnimatedSphere = () => {
   );
 };
 
+// SkillIcon Component
 const SkillIcon = ({ Icon, label }) => (
   <motion.div
     whileHover={{ scale: 1.1 }}
@@ -66,6 +72,7 @@ const SkillIcon = ({ Icon, label }) => (
   </motion.div>
 );
 
+// ProjectCard Component
 const ProjectCard = ({ project, onClick }) => (
   <motion.div
     whileHover={{ scale: 1.05 }}
@@ -92,7 +99,9 @@ const ProjectCard = ({ project, onClick }) => (
   </motion.div>
 );
 
+// Main App Component
 export default function App() {
+  const isMobile = useIsMobile(); // Use the custom hook
   const [activeProject, setActiveProject] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef(null);
@@ -194,6 +203,11 @@ export default function App() {
     },
     [isMenuOpen]
   );
+
+  // Debugging: Log isMobile to verify its value
+  useEffect(() => {
+    console.log('isMobile:', isMobile);
+  }, [isMobile]);
 
   return (
     <div
@@ -523,42 +537,43 @@ export default function App() {
             className="min-h-screen flex items-center justify-center mb-24"
           >
             <div>
-              <motion.h3
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-3xl font-bold mb-12 text-teal-400"
-              >
-                Projects
-              </motion.h3>
-              <motion.div
-                className="grid md:grid-cols-2 gap-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.8 }} 
-                variants={{
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.1,
-                    },
-                  },
-                }}
-              >
+              {/* Section Header */}
+              {isMobile ? (
+                <h3 className="text-3xl font-bold mb-12 text-teal-400">
+                  Projects
+                </h3>
+              ) : (
+                <motion.h3
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-3xl font-bold mb-12 text-teal-400"
+                >
+                  Projects
+                </motion.h3>
+              )}
+
+              {/* Projects Grid */}
+              <div className="grid md:grid-cols-2 gap-8">
                 {projects.map((project) => (
-                  <motion.div
-                    key={project.id}
-                    variants={{
-                      hidden: { y: 20, opacity: 0 },
-                      visible: { y: 0, opacity: 1 },
-                    }}
-                  >
-                    <ProjectCard
-                      project={project}
-                      onClick={setActiveProject}
-                    />
-                  </motion.div>
+                  isMobile ? (
+                    // Without animation on mobile
+                    <div key={project.id}>
+                      <ProjectCard project={project} onClick={setActiveProject} />
+                    </div>
+                  ) : (
+                    // With animation on desktop/tablet
+                    <motion.div
+                      key={project.id}
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <ProjectCard project={project} onClick={setActiveProject} />
+                    </motion.div>
+                  )
                 ))}
-              </motion.div>
+              </div>
             </div>
           </section>
 
