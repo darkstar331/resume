@@ -25,10 +25,7 @@ import {
   ExternalLink,
   Menu,
   X,
-  Atom,
   Code,
-  Paintbrush,
-  Database as LucideDatabase,
   MousePointer2,
 } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
