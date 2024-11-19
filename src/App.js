@@ -141,32 +141,40 @@ export default function App() {
       title: 'Musiclite',
       description:
         'A Spotify-inspired music streaming application with real-time audio visualization and social features.',
-      icon: <Atom size={24} className="text-teal-400" />,
+      icon: <Code size={24} className="text-teal-400" />,
       previewUrl: 'https://musiclite.netlify.app/',
     },
     {
       id: 2,
-      title: 'PixelPerfect',
+      title: 'Usafe',
       description:
-        'An AI-powered photo editing tool with intelligent enhancements and creative filters.',
+        'U Safe is a web app empowering university students to stay safe on campus by providing emergency contacts, resources, and options to find friends or quiet places.',
       icon: <Code size={24} className="text-purple-400" />,
-      previewUrl: 'https://example.com/pixelperfect',
+      previewUrl: 'https://usafe-uoa.netlify.app/',
     },
     {
       id: 3,
-      title: 'DesignFolio',
+      title: 'Techshop',
       description:
-        'An interactive design portfolio showcasing work with smooth transitions and animations.',
-      icon: <Paintbrush size={24} className="text-pink-400" />,
-      previewUrl: 'https://example.com/designfolio',
+        'A fully-featured eCommerce platform using the MERN stack with Redux for state management.',
+      icon: <Code size={24} className="text-pink-400" />,
+      previewUrl: 'https://github.com/darkstar331/ProShop-V1',
     },
     {
       id: 4,
-      title: 'ShopSmart',
+      title: 'SimTrade',
       description:
         'A modern e-commerce platform with AR product previews and personalized recommendations.',
-      icon: <LucideDatabase size={24} className="text-yellow-400" />,
-      previewUrl: 'https://example.com/shopsmart',
+      icon: <Code size={24} className="text-yellow-400" />,
+      previewUrl: 'https://github.com/darkstar331/SimTrade',
+    },
+    {
+      id: 5,
+      title: 'Patronix',
+      description:
+        'Patronix is a streamlined patronage app enabling creators to receive donations effortlessly via Stripe’s secure checkout and GitHub authentication.',
+      icon: <Code size={24} className="text-orange-400" />,
+      previewUrl: 'https://github.com/darkstar331/Patronix',
     },
   ];
 
@@ -219,7 +227,7 @@ export default function App() {
         className="fixed inset-0 z-0"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80')",
+            "url('https://images.unsplash.com/photo-1475070929565-c985b496cb9f?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           y: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
@@ -434,7 +442,7 @@ export default function App() {
                   className="bg-gray-800 p-6 rounded-lg shadow-lg border border-teal-400"
                 >
                   <h4 className="text-2xl font-semibold mb-4 text-teal-400">
-                    Educational Background
+                    Education
                   </h4>
                   <div className="text-xl font-medium mb-2 text-white">
                     🎓 BSc. in Computer Science
@@ -459,13 +467,13 @@ export default function App() {
                   <div className="relative pl-8 border-l-2 border-teal-400">
                     {[
                       {
-                        year: '2023',
-                        event: 'Internship at Tech Innovators Inc.',
+                        year: 'May 2024 - Aug 2024',
+                        event: 'Internship at Rehabilitation Robotics Laboratory',
                       },
-                      { year: '2022', event: 'Web Development Bootcamp' },
+                      { year: 'Sep 2023 - Present', event: 'Bsc Computer Science' },
                       {
-                        year: '2021',
-                        event: 'Started Computer Science Degree',
+                        year: ' Jun 2023 - Aug 2023',
+                        event: 'SDE Intern at JUSPAY',
                       },
                     ].map((item, index) => (
                       <motion.div
@@ -500,7 +508,7 @@ export default function App() {
                 transition={{ duration: 0.5 }}
                 className="text-3xl text-left font-bold mb-12 text-teal-400 "
               >
-                Technologies I Love
+                Technologies 
               </motion.h3>
               <motion.div
                 className="grid grid-cols-3 md:grid-cols-5 gap-6 max-w-6xl mx-auto"
@@ -717,7 +725,7 @@ export default function App() {
                   className="bg-teal-500 text-gray-900 font-bold py-2 px-4 rounded-full flex items-center space-x-2"
                 >
                   <ExternalLink size={18} />
-                  <span>Live Preview</span>
+                  <span>More</span>
                 </motion.a>
               </div>
             </motion.div>
